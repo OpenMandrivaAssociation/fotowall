@@ -45,3 +45,10 @@ desktop-file-install --vendor="" \
 %{_datadir}/pixmaps/%{name}.png
 %{_mandir}/man1/%{name}.1.*
 
+
+
+%changelog
+* Fri Mar 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.9-1mdv2011.0
++ Revision: 781698
+- imported package fotowall
+
