@@ -1,7 +1,7 @@
 Name:		fotowall
 Version:	0.9
 Release:	%mkrel 1
-Summary:	FotoWall is a wallpaper generator
+Summary:	Wallpaper generator
 License:	GPLv2
 Source0:	Fotowall-%{version}.tar.bz2
 Group:		Graphical desktop/KDE
