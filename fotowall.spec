@@ -1,6 +1,6 @@
 Name:		fotowall
 Version:	0.9
-Release:	%mkrel 1
+Release:	2
 Summary:	Wallpaper generator
 License:	GPLv2
 Source0:	Fotowall-%{version}.tar.bz2
@@ -28,7 +28,6 @@ sed -i -e 's/linux\/videodev.h/libv4l1-videodev.h/' 3rdparty/videocapture/VideoD
 %make
 
 %install
-%__rm -rf %{buildroot}
 make install INSTALL_ROOT=%{buildroot}
 desktop-file-install --vendor="" \
     --mode 644 \
@@ -36,7 +35,6 @@ desktop-file-install --vendor="" \
     %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %clean
-%__rm -rf %{buildroot}
 
 %files
 %doc README.markdown GPL_V2
