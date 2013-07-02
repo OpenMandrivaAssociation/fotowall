@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:		fotowall
 Version:	0.9
 Release:	2
