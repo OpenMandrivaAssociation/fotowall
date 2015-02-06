@@ -2,7 +2,7 @@
 
 Name:		fotowall
 Version:	0.9
-Release:	2
+Release:	3
 Summary:	Wallpaper generator
 License:	GPLv2
 Source0:	Fotowall-%{version}.tar.bz2
