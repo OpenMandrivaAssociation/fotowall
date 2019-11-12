@@ -19,6 +19,7 @@ BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  libv4l-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qttools
+BuildRequires:  qmake5
 
 %description
 FotoWall is a wallpaper generator rendering some of your favorite pictures
