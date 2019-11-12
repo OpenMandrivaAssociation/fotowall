@@ -1,16 +1,24 @@
 %define debug_package %{nil}
 
 Name:		fotowall
-Version:	0.9
-Release:	3
+Version:	1.0
+Release:	1
 Summary:	Wallpaper generator
 License:	GPLv2
 Source0:	Fotowall-%{version}.tar.bz2
 Group:		Graphical desktop/KDE
 URL:		http://www.kde-apps.org/content/show.php/FotoWall?content=71320
-BuildRequires:	qt4-devel >= 4.5.2
-BuildRequires:	libv4l-devel
-BuildRequires:	desktop-file-utils
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(Qt5Network)
+BuildRequires:  pkgconfig(Qt5PrintSupport)
+BuildRequires:  pkgconfig(Qt5OpenGL)
+BuildRequires:  pkgconfig(Qt5Svg)
+BuildRequires:  pkgconfig(Qt5Widgets)
+BuildRequires:  pkgconfig(Qt5Xml)
+BuildRequires:  libv4l-devel
+BuildRequires:  desktop-file-utils
+BuildRequires:  qt5-qttools
 
 %description
 FotoWall is a wallpaper generator rendering some of your favorite pictures
@@ -26,26 +34,23 @@ sed -i -e "/scripts/d" -e "s@man\ \\\@man@" %{name}.pro
 sed -i -e 's/linux\/videodev.h/libv4l1-videodev.h/' 3rdparty/videocapture/VideoDevice.h
 
 %build
-%qmake_qt4
-%make
+%qmake_qt5
+%make_build
 
 %install
-make install INSTALL_ROOT=%{buildroot}
-desktop-file-install --vendor="" \
-    --mode 644 \
-    --dir %{buildroot}%{_datadir}/applications/ \
-    %{buildroot}%{_datadir}/applications/%{name}.desktop
+%make_install INSTALL_ROOT=%{buildroot}
 
-%clean
+desktop-file-install --vendor="" \
+  --mode 644 \
+  --dir %{buildroot}%{_datadir}/applications/ \
+  %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 %files
-%doc README.markdown GPL_V2
+%doc GPL_V2 README.markdown
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-%{_mandir}/man1/%{name}.1.*
-
-
+%{_datadir}/man/man?/%{name}.?.*
 
 %changelog
 * Fri Mar 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.9-1mdv2011.0
