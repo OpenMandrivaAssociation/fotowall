@@ -8,6 +8,7 @@ License:	GPLv2
 Source0:	https://github.com/enricoros/fotowall/releases/download/v%{version}/Fotowall-%{version}-RETRO.tar.bz2
 Group:		Graphical desktop/KDE
 URL:		https://github.com/enricoros/fotowall
+Patch0:         fotowall-1.0-fix-build-against-qt-5.11.0.patch
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Network)
@@ -27,6 +28,7 @@ in a nice and smooth high resolution composition.
 
 %prep
 %setup -q -n Fotowall-%{version}-RETRO
+%autopatch -p1
 
 sed -i -e "/scripts/d" -e "s@man\ \\\@man@" %{name}.pro
 # for v4l1 compatibility
