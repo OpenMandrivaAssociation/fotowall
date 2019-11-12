@@ -5,9 +5,9 @@ Version:	1.0
 Release:	1
 Summary:	Wallpaper generator
 License:	GPLv2
-Source0:	Fotowall-%{version}.tar.bz2
+Source0:	https://github.com/enricoros/fotowall/releases/download/v%{version}/Fotowall-%{version}-RETRO.tar.bz2
 Group:		Graphical desktop/KDE
-URL:		http://www.kde-apps.org/content/show.php/FotoWall?content=71320
+URL:		https://github.com/enricoros/fotowall
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Network)
@@ -25,13 +25,11 @@ FotoWall is a wallpaper generator rendering some of your favorite pictures
 in a nice and smooth high resolution composition.
 
 %prep
-%setup -q -n Fotowall-%{version}
-# for hidden-file-or-dir warning
-sed -i -e "s/\.build/build/" %{name}.pro
-# Unused file
+%setup -q -n Fotowall-%{version}-RETRO
+
 sed -i -e "/scripts/d" -e "s@man\ \\\@man@" %{name}.pro
 # for v4l1 compatibility
-sed -i -e 's/linux\/videodev.h/libv4l1-videodev.h/' 3rdparty/videocapture/VideoDevice.h
+sed -i -e 's/linux\/videodev2.h/libv4l1-videodev.h/' 3rdparty/videocapture/VideoDevice.h
 
 %build
 %qmake_qt5
