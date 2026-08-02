@@ -1,0 +1,36 @@
+diff -Nru a/3rdparty/likebackfrontend/LikeBackDialog.cpp b/3rdparty/likebackfrontend/LikeBackDialog.cpp
+--- a/3rdparty/likebackfrontend/LikeBackDialog.cpp	2026-06-30 17:54:31.000000000 +0200
++++ b/3rdparty/likebackfrontend/LikeBackDialog.cpp	2026-08-02 18:12:29.433238444 +0200
+@@ -37,7 +37,7 @@
+ #include "LikeBackDialog.h"
+ 
+ #include <QApplication>
+-#include <QButtonGroup>
++#include <QButtonGroup> // Qt >= 5.11: no longer transitive
+ #include <QLocale>
+ #include <QMessageBox>
+ #include <QNetworkAccessManager>
+diff -Nru a/App/CanvasAppliance.cpp b/App/CanvasAppliance.cpp
+--- a/App/CanvasAppliance.cpp	2026-06-30 17:54:31.000000000 +0200
++++ b/App/CanvasAppliance.cpp	2026-08-02 18:12:29.433395246 +0200
+@@ -31,7 +31,7 @@
+ #include "Settings.h"
+ #include "Workflow.h"
+ 
+-#include <QActionGroup>
++#include <QActionGroup> // Qt >= 5.11: no longer transitive
+ #include <QFileDialog>
+ #include <QInputDialog>
+ #include <QMenu>
+diff -Nru a/App/CanvasAppliance.h b/App/CanvasAppliance.h
+--- a/App/CanvasAppliance.h	2026-06-30 17:54:31.000000000 +0200
++++ b/App/CanvasAppliance.h	2026-08-02 18:12:29.433484437 +0200
+@@ -15,7 +15,7 @@
+ #ifndef __CanvasAppliance_h__
+ #define __CanvasAppliance_h__
+ 
+-#include <QActionGroup>
++#include <QActionGroup> // Qt >= 5.11: no longer transitive
+ 
+ #include "Canvas/CanvasModeInfo.h"
+ #include "Shared/PlugGui/AbstractAppliance.h"
